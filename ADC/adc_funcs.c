@@ -1,4 +1,4 @@
-#include "adc_funs.h"
+#include "adc_funcs.h"
 
 void serialMasterInit(){
     // May want to set these registers to zero initially.

@@ -3,5 +3,5 @@
 
 void serialInit();
 void serialRead();
-void serialWrite()
+void serialWrite();
 #endif
