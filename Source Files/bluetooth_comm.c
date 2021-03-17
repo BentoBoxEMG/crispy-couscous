@@ -10,7 +10,18 @@ void uart_transmit(unsigned char data)
     UDR0 = data;   
 }
 
-void bt_send(unsigned char *, int size)
+void bt_send(unsigned char * bt_packet, int size)
 {
+    /* BT_SEND
+     * This functions reads data from the bt_packet array and transmits
+     * using the UART.
+     */
 
+    int i = 0;
+
+    while (i < size)
+    {
+        uart_transmit(*(bt_packet + i));
+        i++;
+    }
 }
