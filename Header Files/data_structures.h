@@ -24,6 +24,7 @@ typedef struct
     unsigned char ch7[4];
     unsigned char ch8[4];
 } processed_data;
+
 typedef struct 
 {
     int size;
