@@ -13,6 +13,17 @@ typedef struct
     uint16_t ch8;
 } adc_data;
 
+typedef struct
+{
+    unsigned char ch1[4];
+    unsigned char ch2[4];
+    unsigned char ch3[4];
+    unsigned char ch4[4];
+    unsigned char ch5[4];
+    unsigned char ch6[4];
+    unsigned char ch7[4];
+    unsigned char ch8[4];
+} processed_data;
 typedef struct 
 {
     int size;
