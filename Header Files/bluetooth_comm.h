@@ -2,10 +2,10 @@
 #define BLUETOOTH_COMM
 
 void uart_transmit(unsigned char);
-void bt_send(unsigned char * bt_packet, int size);
+void bt_send(bt_packet * packet);
 
 
 // DECIDE HOW THIS WILL BE DEFINED!!!!
-// unsigned char bt_prepare();
+sd_packet bt_prepare(processed_data * data);
 
 #endif
