@@ -26,14 +26,3 @@ void bt_send(bt_packet * packet)
         i++;
     }
 }
-
-
-// Work in progress
-sd_packet bt_prepare(processed_data * data)
-{
-    sd_packet output;
-    output.size = 41;
-
-
-    return output;
-}
