@@ -1,17 +1,9 @@
-/*
- * File:   main.c
- * Author: zkwong
- *
- * Created on January 7, 2021, 1:47 PM
- */
-
-
-#include <avr/io.h>
-#include <util/delay.h>
-
 /* MCU configuration*/
 #define F_CPU 16000000UL
 #define BAUD 115200
+
+#include <avr/io.h>
+#include <util/delay.h>
 
 void spi_init(unsigned int);
 void uart_init();
