@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "bluetooth_comm.h": "c",
+        "data_structures.h": "c"
+    }
+}

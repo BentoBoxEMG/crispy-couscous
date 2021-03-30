@@ -1,4 +1,5 @@
 #include "bluetooth_comm.h"
+#include <avr/io.h>
 #include "data_structures.h"
 
 void uart_transmit(unsigned char data)
