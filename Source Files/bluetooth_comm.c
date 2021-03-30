@@ -1,4 +1,5 @@
 #include "bluetooth_comm.h"
+#include "data_structures.h"
 
 void uart_transmit(unsigned char data)
 {
@@ -10,7 +11,7 @@ void uart_transmit(unsigned char data)
     UDR0 = data;   
 }
 
-void bt_send(unsigned char * bt_packet, int size)
+void bt_send(bt_packet * packet)
 {
     /* BT_SEND
      * This functions reads data from the bt_packet array and transmits
@@ -18,10 +19,10 @@ void bt_send(unsigned char * bt_packet, int size)
      */
 
     int i = 0;
-
+    int size = packet -> size;
     while (i < size)
     {
-        uart_transmit(*(bt_packet + i));
+        uart_transmit(packet -> data[i]);
         i++;
     }
 }
