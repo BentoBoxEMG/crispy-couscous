@@ -8,6 +8,7 @@
 #define NUM_DIGITS_DECIMAL 4
 #define NUM_END_CHARS 1
 
+
 typedef struct adc_channel_data
 {
     uint8_t ch_number; 
