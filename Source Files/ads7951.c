@@ -7,12 +7,13 @@
 #define MSN_MASK 0x0F // Mask used on high byte to get top 4 bits of the 
                       // conversion result.
 
-uint16_t ads7951_auto_one_get_sample(void) 
+adc_channel ads7951_auto_one_get_sample(void) 
 { 
     uint8_t adc_resp_high; // Stores upper byte of 16-bit response.
     uint8_t adc_resp_low; // Stores lower byte of 16-bit response.
     uint8_t channel; // Stores channel associated with conversion result.
     uint16_t adc_response; // Stores 12-bit conversion result. 
+    adc_channel output_struct;
     
     // Pull SS low.
     PORTB &= ~(1 << PB5); 
@@ -33,7 +34,11 @@ uint16_t ads7951_auto_one_get_sample(void)
     adc_response = (((uint16_t)adc_resp_high & MSN_MASK) << 8) 
             | adc_resp_low;
     
-    return adc_response;
+    // Populate output struct.
+    output_struct.ch_number = channel;
+    output_struct.raw_data = adc_response;
+
+    return output_struct;
 }
 
 void ads7951_auto_one_register_write(void)
