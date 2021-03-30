@@ -1,4 +1,5 @@
 #include "data_structures.h"
+#include "ads7951.h"
 
 void process_data(adc_data * data) 
 {

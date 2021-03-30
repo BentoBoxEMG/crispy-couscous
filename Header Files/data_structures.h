@@ -8,8 +8,7 @@
 #define NUM_DIGITS_DECIMAL 4
 #define NUM_END_CHARS 1
 
-void adc_get_data(adc_data);
-
+void adc_get_data(adc_data * data);
 void process_data(adc_data * data);
 bt_packet bt_prepare(adc_data * data);
 sd_packet sd_prepare(adc_data * data);
