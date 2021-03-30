@@ -22,7 +22,7 @@ void bt_send(bt_packet * packet)
     int size = packet -> size;
     while (i < size)
     {
-        uart_transmit(*(packet -> data + i));
+        uart_transmit(packet -> data[i]);
         i++;
     }
 }

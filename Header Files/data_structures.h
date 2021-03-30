@@ -17,7 +17,7 @@ typedef struct adc_channel_data
 {
     uint8_t ch_number; 
     uint16_t raw_data;
-    unsigned char processed_data[NUM_DIGITS_DECIMAL + 1];
+    unsigned char processed_data[NUM_DIGITS_DECIMAL];
 } adc_channel;
 
 typedef adc_channel adc_data[CHANNEL_NUM];

@@ -30,10 +30,11 @@ bt_packet bt_prepare(adc_data * data)
     
     for (int i = 0; i < CHANNEL_NUM; i++) 
     {
-        for (int j = 0; j < NUM_DIGITS_DECIMAL; j++)
+        output.data[i*(NUM_DIGITS_DECIMAL + 1)] = 'A';
+        for (int j = 1; j < NUM_DIGITS_DECIMAL + 1; j++)
         {
-            int index = i * (NUM_DIGITS_DECIMAL + 1) + j + 1;
-            unsigned char num = (*data)[i].processed_data[j];
+            int index = i * (NUM_DIGITS_DECIMAL + 1) + j;
+            unsigned char num = (*data)[i].processed_data[j - 1];
             output.data[index] = num;
         }
     }
