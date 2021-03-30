@@ -9,3 +9,7 @@ void bt_send(unsigned char * bt_packet, int size);
 // unsigned char bt_prepare();
 
 #endif
+=======
+void bt_send(bt_packet * packet);
+
+#endif

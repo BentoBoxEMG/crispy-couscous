@@ -44,5 +44,4 @@ void uart_init()
     // 8N1 frame format is enabled by default.
     UCSR0C = (1 << UCSZ01) | (1 << UCSZ00);
 //    UCSR0C = 0x06;
-
 }
