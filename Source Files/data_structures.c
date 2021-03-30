@@ -1,4 +1,5 @@
 #include "data_structures.h"
+#include "ads7951.h"
 
 void process_data(adc_data * data) 
 {
@@ -46,4 +47,13 @@ bt_packet bt_prepare(adc_data * data)
 sd_packet sd_prepare(adc_data * data) 
 {
 
+}
+
+void adc_get_data(adc_data * data)
+{
+    for (int i = 0; i < CHANNEL_NUM; i++)
+    {
+        adc_channel sampled_channel = ads7951_auto_one_get_sample();
+        (*data)[sampled_channel.ch_number] = sampled_channel;
+    }
 }
