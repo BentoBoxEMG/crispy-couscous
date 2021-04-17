@@ -42,9 +42,22 @@ bt_packet bt_prepare(adc_data * data)
     // Creates a variable 'output' of type bt_packet and initializes the members to 0.
     bt_packet output = {0};
     // Defines the size member of the output variable. The size is defined to be CHANNEL_NUM * NUM_DIGITS_DECIMAL + CHANNEL_NUM + NUM_END_CHARS.
-    // This size member is equal to the size of the data array in the packet. 
+    // The size member is equal to the size of the data array in the packet.
     output.size = CHANNEL_NUM * NUM_DIGITS_DECIMAL + CHANNEL_NUM + NUM_END_CHARS;
     
+    /*
+    * This iterates through the data member of the output variable. The two loops iterate a total of CHANNEL_NUM * NUM_DIGITS_DECIMAL
+    * times, with the outer loop iterating CHANNEL_NUM times, and the inner loop iterates NUM_DIGITS_DECIMAL times per outer iteration.
+    * 
+    * Every outer loop iteration the following pattern is written to output.data: 'A',X1,X2,..,Xn. 
+    * Where X1,X2,..,Xn are numbers in character form, where n is equal to the NUM_DIGITS_DECIMAL. X1,X2,..Xn are read
+    * from the processed_data member of the adc_data variable pointed to by data.
+    * 
+    * Concretely: 
+    * if NUM_DIGITS_DECIMAL = 4,
+    * then every outer loop iteration the following pattern will be written to output.data: 'A',X1,X2,X3,X4.
+    * 
+    */
     for (int i = 0; i < CHANNEL_NUM; i++) 
     {
         output.data[i*(NUM_DIGITS_DECIMAL + 1)] = 'A';
@@ -55,7 +68,7 @@ bt_packet bt_prepare(adc_data * data)
             output.data[index] = num;
         }
     }
-    // Appends the new line character to the end of the dat array.
+    // Appends the new line character to the end of the data array.
     output.data[output.size-1] = '\n';
     
     return output;
