@@ -31,8 +31,9 @@ typedef struct sd_packet
     unsigned char data[CHANNEL_NUM * NUM_DIGITS_DECIMAL + CHANNEL_NUM + NUM_END_CHARS];
 } sd_packet;
 
-void adc_get_data(adc_data * data);
+// void adc_get_data(adc_data * data);
 void process_data(adc_data * data);
 bt_packet bt_prepare(adc_data * data);
 sd_packet sd_prepare(adc_data * data);
+
 #endif

@@ -49,7 +49,7 @@ int main(void) {
         wireless_packet = bt_prepare(&sample_data);
         bt_send(&wireless_packet);
         uart_transmit('\r');
-        _delay_ms(1000);
+        _delay_ms(20);
     }
     return 0;
 }

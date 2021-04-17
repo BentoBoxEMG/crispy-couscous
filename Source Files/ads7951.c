@@ -60,3 +60,12 @@ void ads7951_auto_one_register_write(void)
     
     return;
 }
+
+void adc_get_data(adc_data * data)
+{
+    for (int i = 0; i < CHANNEL_NUM; i++)
+    {
+        adc_channel sampled_channel = ads7951_auto_one_get_sample();
+        (*data)[sampled_channel.ch_number] = sampled_channel;
+    }
+}
